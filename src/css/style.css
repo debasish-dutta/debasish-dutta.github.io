@@ -1,0 +1,299 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,900;1,500;1,800&display=swap');
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Setting theme colors */
+:root {
+    /* primary color */
+	--primary-100: #e2e0ff;
+	--primary-200: #c1beff;
+	--primary-300: #a29dff;
+	--primary-400: #837dff;
+	--primary-500: #645cff;
+	--primary-600: #504acc;
+	--primary-700: #3c3799;
+	--primary-800: #282566;
+	--primary-900: #141233;
+
+    /* grey */
+	--grey-50: #f8fafc;
+	--grey-100: #f1f5f9;
+	--grey-200: #e2e8f0;
+	--grey-300: #cbd5e1;
+	--grey-400: #94a3b8;
+	--grey-500: #64748b;
+	--grey-600: #475569;
+	--grey-700: #334155;
+	--grey-800: #1e293b;
+	--grey-900: #0f172a;
+
+    /* secondary colors */
+    --black: #222;
+	--white: #fff;
+	--red-light: #f8d7da;
+	--red-dark: #842029;
+	--green-light: #d1e7dd;
+	--green-dark: #0f5132;
+    --transparent: rgba(0,0,0,0);
+
+    /* fonts */
+	--headingFont: 'Noto Sans', sans-serif;
+	--bodyFont: 'Noto Sans', 'Helvetica Neue', sans-serif;
+	--smallText: 0.7em;
+    --largeText: 1.69em;
+	--backgroundColor: var(--grey-100);
+	--textColor: var(--grey-900);
+	--borderRadius: 0.25rem;
+	--letterSpacing: 1px;
+	--transition: 0.3s ease-in-out all;
+	--max-width: 1120px;
+	--fixed-width: 600px;
+
+	/* box shadow*/
+	--shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Initializing the values */
+body {
+	background: var(--backgroundColor);
+	font-family: var(--bodyFont);
+	font-weight: 400;
+	line-height: 1.75;
+	color: var(--textColor);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* layout */
+
+
+
+
+/* NavBar */
+
+.navbar {
+    background-color: var(--white);
+    overflow: hidden;
+    margin: 2% 10% 3% 10%;
+    display: flex;
+    justify-content: right;
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: var(--textColor);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .navbar a.active {
+    background-color: var(--primary-500);
+    color: white;
+  }
+  
+  .menuToggle {
+    display: none;
+}
+
+/* responsivness */
+
+@media screen and (max-width: 769px) {
+    .open .hid {
+        display: none;
+        transition: 0.5s ease-in 0.3s;
+    }
+    .open {
+        transition: 0.5s ease-in 0.3s;
+    }
+    .navbar {
+        margin: 0;
+    }
+    .navbar a {
+        display: none;
+    }
+    .menuToggle {
+      float: right;
+      display: flex;
+      align-items: flex-end;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 200;
+    }
+    .navbar {
+        background: linear-gradient(120deg, aqua, violet);
+        transform: translateX(105%);  /* move it horizontally off the page */
+        transition: transform 0.5s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    }
+    .header.responsive {
+        transition: transform 0.5s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+        position: fixed;
+        z-index: 1;
+        overflow-x: hidden;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .responsive {
+        transform: translateX(0);
+        transition: transform 0.5s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+        position: relative;
+        /* margin-top: 0; */
+        top: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: var(--transparent);
+    }
+    .navbar.responsive a{
+        background-color: var(--transparent);
+        color: var(--black);
+        font-size: 25px;
+        transition: 0.5s ease-in 0.3s;
+    }
+    .header.responsive .menuToggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .navbar.responsive a {
+      float: none;
+      display: block;
+      text-align: center;
+      padding: 9px;
+      
+    }
+  }
+  @media only screen and (min-width: 768px) {
+
+  }
+  @media screen and (max-width: 600px) {
+  }
+
+/* Main content */
+.main {
+    margin: 0;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    background-color: var(--white);
+    position: relative;
+    width: 250px;
+    height: 100%;
+    top: 0;
+    left: 10%;
+    bottom: 0;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+#name {
+    display: block;
+    padding: 10px 20px;
+    color: var(--textColor);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin: 0 auto;
+    font-size: 25px;
+    /* text-transform: uppercase; */
+}
+#desg {
+    align-items: center;
+    margin: 0 auto;
+    background-color: var(--primary-500);
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: var(--white);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  vertical-align: middle;
+}
+#desg:hover { 
+    background-color: var(--primary-600);
+    color: var(--white);
+  }
+#avatar {
+    align-items: center;
+    width:auto;
+    height: auto;
+    margin: 0 20px;
+    border-radius: 40px;
+}
+.social {
+    margin: 10px;
+    display: flex;
+    font-size: var(--largeText);
+    justify-content: space-around;
+    padding: 0 auto;
+}
+
+.social a{
+    color: var(--primary-400);
+}
+.social a:hover{
+    color: var(--primary-600)
+}
+.info{
+    padding: auto;
+    padding-top: 20px;
+}
+.info li{
+    display: block;
+   letter-spacing: 2px;
+   padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 769px) {
+    
+    .sidebar{
+        margin: 5% 10% 5% 10%;
+        width: 60%;
+    }
+    
+}
+
+
+
+
+
