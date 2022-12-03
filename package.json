@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "web",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "debasish dutta",
+  "license": "ISC",
+  "dependencies": {
+    "jshint": "^2.13.6"
+  }
+}
