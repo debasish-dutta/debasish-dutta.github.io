@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/17059eb0a4.js" crossorigin="anonymous"></script>
-    <title>Name || My Portfolio</title>
+    <title>Debasish Dutta || Portfolio</title>
 </head>
 <body>
-    <section class="layout">
+    <div class="layout">
         <nav class="header" id="header">
         <header class="navbar" id="navBar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#milestones">Milestones</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="active tabs" data-nav-link="home">Home</a>
+            <a href="#about" class="tabs" data-nav-link="about">About</a>
+            <a href="#skills" class="tabs" data-nav-link="skills">Skills</a>
+            <a href="#milestones" class="tabs" data-nav-link="milestones">Milestones</a>
+            <a href="#projects" class="tabs" data-nav-link="projects">Projects</a>
+            <a href="#contact" class="tabs" data-nav-link="contact">Contact</a>
         </header>
         <button class="menuToggle">
             <a href="javascript:void(0);" class="open" onclick="navbarToggle()">
@@ -32,7 +33,7 @@
         </nav>
 
         <section class="main">
-            <div class="sidebar">
+            <aside class="sidebar">
                 <img id="avatar" src="src/images/avatar_200x200.png" alt="Avatar">
                 <h2 id="name">Profile Name</h2>
                 <h4 id="desg">Designation</h4>
@@ -48,12 +49,30 @@
                     <li ><i class="fa fa-envelope"></i> <a href="mailto:gg@email.com" target="_blank">gg@email.com</a></li>
                     <li ><i class="fa fa-mobile"></i> <a href="wa.me/+91-()" target="_blank"> +91 1234-123-123</a></li>
                 </ul>
-            </div>
-            <main>
+            </aside>
 
+            <main>
+                <article class="Home active" data-page="home">
+                    <h2>HOME</h2>
+                </article>
+                <article class="about" data-page="about">
+                    <h2>ABOUT</h2>
+                </article>
+                <article class="skills" data-page="skills">
+                    <h2>SKILLS</h2>
+                </article>
+                <article class="milestone" data-page="milestones">
+                    <h2>MILESTONES</h2>
+                </article>
+                <article class="projects" data-page="projects">
+                    <h2>PROJECTS</h2>
+                </article>
+                <article class="contact" data-page="contact">
+                    <h2>CONTACT</h2>
+                </article>
             </main>
         </section>
-    </section>
+    <div/>
 
 
     <script src="src/js/style.js"></script>
