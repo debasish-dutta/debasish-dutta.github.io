@@ -9,6 +9,9 @@ const pages = document.querySelectorAll("[data-page]");
 const eduHead = document.getElementsByClassName("edu-head");
 const timelineCard = document.querySelectorAll(".work-timeline li");
 
+const form = document.querySelector('.contact-form');
+const btn = document.querySelector('#submit');
+
 function navbarToggle() {
     if (navBar.className === "navbar") {
       navBar.className += " responsive";
@@ -87,3 +90,18 @@ function isElementInViewport(el) {
     window.addEventListener("scroll", slideIn);
     window.addEventListener("resize", slideIn);
 }) ();
+
+
+    
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // e.submit();
+        const formData = new FormData(form);
+        // const values = [...formData.entries()];
+        console.log(Object.fromEntries(formData));
+        // console.log(values);
+    });
+// const output = document.getElementById('output');
+
+// for (const [key, value] of formData) {
+//   output.textContent += `${key}: ${value}\n`;

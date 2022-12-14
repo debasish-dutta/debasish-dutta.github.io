@@ -781,3 +781,253 @@ article.active {
         margin: 0 auto;
     }
 }
+
+/* Contact */
+
+.contact-wrapper{
+    width: 80%;
+    margin: 5% 0 0 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 2em;
+    row-gap: 1em;
+}
+.contact-details {
+    width: 40%;
+}
+
+.contact-list {
+    margin-top: 15%;
+    list-style-type: none;
+    margin-left: -30px;
+    padding-right: 20px;
+  }
+  
+  .list-item {
+    line-height: 3;
+    color: var(--green-dark);
+  }
+  .list-item i{
+      font-size: var(--smallText);
+  }
+  .contact-text {
+    letter-spacing: 1.9px;
+    color: var(--primary-400);
+  }
+  
+  .place {
+    margin-left: 3rem;
+  }
+  
+  .phone {
+    margin-left: 2.5rem;
+  }
+  
+  .gmail {
+    margin-left: 2rem;
+  }
+  
+  .contact-text a {
+    color: var(--primary-500);
+    text-decoration: none;
+    transition-duration: 0.2s;
+  }
+  
+  .contact-text a:hover {
+    color: var(--black);
+    text-decoration: none;
+  }
+  .social-list {
+    position: relative;
+    font-size: var(--largeText);
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .social-list li a {
+    color: var(--black);
+  }
+  
+  .social-list li {
+    position: relative; 
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 10px 3px;
+    line-height: 2em;
+    border-radius: 50%;
+    color: var(--black);
+    background-color: var(--primary-600);
+    cursor: pointer; 
+    transition: all .2s ease-in-out;
+  }
+  
+  .social-list li:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    line-height: 2em;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 0 1px var(--black);
+    transition: all .2s ease-in-out;
+  }
+  
+  .social-list li:hover {
+    background-color: var(--black); 
+  }
+  
+  .social-list li:hover:after {
+    opacity: 1;  
+    transform: scale(1.12);
+    transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+  }
+  
+  .social-list li:hover a {
+    color: var(--white);
+  }
+  
+  .copyright {
+    color: var(--primary-600);
+    letter-spacing: var(--letterSpacing);
+    text-align: center;
+    opacity: .8;
+  }
+  
+  hr {
+    border-color: var(--grey-700);
+    opacity: 0.69;
+  }
+
+.form-title {
+    display: flex;
+  flex-direction: column;
+  position: relative;
+  color: var(--primary-500);
+  font-size: var(--largeText);
+  font-weight: 800;
+}
+.form-title::after {
+    content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 25px;
+  height: 4px;
+  background: var(--primary-500);
+}
+
+.contact-form {
+    width: 60%;
+    flex: 1;
+    padding: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group.message {
+    margin-top: 40px;
+  }
+  
+  .form-group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--grey-300);
+    color: var(--textColor);
+    font-size: var(--mediumText);
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .3s;
+  }
+  
+  .form-control::placeholder {
+    color: var(--grey-500);
+  }
+  
+  .form-control:focus {
+    border-bottom-color: var(--primary-300);
+  }
+  
+  .form-button {
+    background: none;
+    border: none;
+    color: var(--primary-600);
+    font-size: var(--smallText);
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .form-button:hover {
+    color: var(--primary-500);
+    font-size: var(--mediumText);
+    transition: font-size 0.2s ease-in-out;
+  }
+
+  @media screen and (max-width: 850px) {
+    .contact-wrapper {
+      display: flex;
+      flex-direction: column;
+    }  
+    .contact-details {
+        width: 100%;
+        font-size: var(--smallText);
+    }
+    .contact-form {
+        width: 100%;
+        flex: 1;
+        padding: 20px;
+    } 
+
+    .social-list li {
+      height: 60px;
+      width: 60px;
+      line-height: 60px;
+    }
+    .social-list li:after {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+    }
+  }
+  
+  @media screen and (max-width: 469px) {
+
+    .contact-list {
+        font-size: var(--smallText);
+    }
+
+    .social-list {
+      left: 0;
+      font-size: var(--smallText);
+    }
+    .social-list li {
+      height: 55px;
+      width: 55px;
+      line-height: 55px;
+      font-size: 2rem;
+    }
+    .social-list li:after {
+      width: 55px;
+      height: 55px;
+      line-height: 55px;
+    }
+    
+  }
+  
