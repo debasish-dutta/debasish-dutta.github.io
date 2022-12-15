@@ -1189,6 +1189,12 @@ article.active {
     column-gap: 1em;
     row-gap: 1em;
 }
+#hR{
+    background-color: var(--grey-500);
+    height: fit-content;
+    padding: 0 5px;
+    border-radius: 3px;
+}
 
 /* github stats */
 .github-stats {
