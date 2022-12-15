@@ -366,6 +366,7 @@ a {
   .sidebar {
     width: 100%;
     border-radius: 15px 15px 0 0;
+    position: relative;
   }
   aside.sidebar.hide {
     display: none;
@@ -810,10 +811,11 @@ article.active {
     color: var(--green-dark);
   }
   .list-item i{
-      font-size: var(--smallText);
+      font-size: var(--largeText);
   }
   .contact-text {
-    letter-spacing: 1.9px;
+    letter-spacing: 1.69px;
+    font-size: var(--smallText);
     color: var(--primary-400);
   }
   
@@ -987,7 +989,7 @@ article.active {
     }  
     .contact-details {
         width: 100%;
-        font-size: var(--smallText);
+        font-size: var(--mediumText);
     }
     .contact-form {
         width: 100%;
@@ -1031,3 +1033,177 @@ article.active {
     
   }
   
+
+
+/* Skills */
+
+/* Top Skills */
+
+/* All Skills */
+
+.all-skills {
+    width: 100%;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+.skill-wrapper {
+    width: 25em;
+}
+.progress-bars {
+    margin: 0 auto;
+}
+
+@keyframes load{
+    from {
+      width: 0%
+    }
+  }
+
+  .bar{
+    background-color: var(--grey-300);
+    border-radius: 1.5em;
+    margin-bottom: 0.69em;
+    font-size: var(--smallText);
+    font-weight: 300;
+  }
+  .bar::before{
+    content:  attr(data-skill);
+    background-color: var(--primary-500);
+    display: inline-block;
+    padding: 5px 0 5px 10px;
+    border-radius: inherit;
+    animation: load 2s 0s;
+    -webkit-animation: load 2s 0s;
+    -moz-animation: load 2s 0s;
+    -o-animation: load 2s 0s;
+  }
+  
+  .bar.lang::before{
+    background-color: #ffcc33;
+  }
+  .bar.tech::before{
+    background-color: #a6cfe3;
+  }
+  
+  .bar.other::before{
+    background-color: darkmagenta;
+  }
+  .bar.lib::before {
+      background-color: var(--green-light);
+  }
+  
+  .bar.learn-1::before {
+      width: 10%;
+  }
+  .bar.learn-2::before {
+      width: 20%;
+  }
+  .bar.basic-1::before{
+    width: 30%;
+  }
+  .bar.basic-2::before{
+    width: 40%;
+  }
+  .bar.basic-3::before{
+    width: 50%;
+  }
+  .bar.basic-4::before{
+    width: 60%;
+  }
+  .bar.intermediate-1::before{
+    width: 65%;
+  }
+  .bar.intermediate-2::before{
+    width: 70%;
+  }
+  .bar.intermediate-3::before{
+    width: 75%;
+  }
+  .bar.intermediate-4::before{
+    width: 80%;
+  }
+  .bar.intermediate-5::before{
+    width: 85%;
+  }
+  .bar.advanced-1::before{
+    width: 90%;
+  }
+  .bar.advanced-2::before{
+    width: 95%;
+  }
+  .bar.expert::before{
+    width: 100%;
+  }
+
+  @media screen and (max-width: 850px) {
+    .all-skills {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.2em;
+    }
+    .skill-wrapper {
+        width: 20em;
+    } 
+  }
+
+/* tools */
+
+.tools {
+    width: 80%;
+    margin: 5px 0 0 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.tool-circ img {
+    height: 5em;
+    width: 5em;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.tool-circ img:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+/* About */
+
+/* Stats */
+
+
+/* github stats */
+.github-stats {
+    width: 100%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+.trophy {
+    content:url(https://github-profile-trophy.vercel.app/?username=debasish-dutta&theme=onedark&no-bg=true&no-frame=true&column=-1&margin-w=15);
+}
+
+@media screen and (max-width: 769px) {
+    .github-stats {
+        margin: 2.5px;
+    }
+    .trophy {
+        padding: 2.5px;
+        width: 97%;
+        height: 97%;
+        content:url(https://github-profile-trophy.vercel.app/?username=debasish-dutta&theme=onedark&no-bg=true&no-frame=true&column=3&row=2&margin-w=15&margin-h=15);
+    }
+}
