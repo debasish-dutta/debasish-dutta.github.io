@@ -1189,6 +1189,12 @@ article.active {
     column-gap: 1em;
     row-gap: 1em;
 }
+#hR{
+    background-color: var(--grey-500);
+    height: fit-content;
+    padding: 0 5px;
+    border-radius: 3px;
+}
 
 /* github stats */
 .github-stats {
@@ -1215,4 +1221,87 @@ article.active {
         height: 97%;
         content:url(https://github-profile-trophy.vercel.app/?username=debasish-dutta&theme=onedark&no-bg=true&no-frame=true&column=3&row=2&margin-w=15&margin-h=15);
     }
+}
+
+/* HOME */
+
+#home-title{
+    margin-bottom: 0;
+}
+/* typing effect */
+.typing-wrapper {
+    width: 70%;
+    margin: 5px 5% 0 0;
+    display: inline-flex;
+}
+.static-text {
+    color: var(--grey-500);
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: auto 0;
+    overflow: hidden;
+}
+span.dynamic-text {
+    line-height: 2em;
+    color: var(--primary-500);
+    font-weight: 600;
+    overflow: hidden;
+}
+span.cursor {
+    display: inline-block;
+    position: relative;
+    background-color: var(--primary-500);
+    margin: 1px;
+    width: 0.1em;
+    animation: blink 1s infinite;
+}
+span.cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0%  { background-color: var(--primary-500); }
+    49% { background-color: var(--primary-500); }
+    50% { background-color: var(--transparent); }
+    99% { background-color: var(--transparent); }
+    100%  { background-color: var(--primary-500); }
+  }
+
+@media screen and (max-width: 769px) {
+    .static-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    .dynamic-text {
+        line-height: 1.5rem;
+    }
+}
+/* cards */
+.home-card-wrapper {
+    width: 95%;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 1em;
+    row-gap: 2em;
+}
+
+.home-card{
+    height: 16.9em;
+    width: 16.9em;
+    border: 1px solid var(--grey-500);
+    box-shadow: var(--shadow-2);
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+.home-card img{
+    margin-bottom: 1em;
+}
+.home-card p, h4 {
+    margin: 0 auto;
 }
