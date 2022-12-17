@@ -190,7 +190,7 @@ projCard.forEach(pro => {
 function toggleHideOthers(divs, id){
   divs.forEach(sd => {
       if(sd.id != id){
-            //   sd.classList.toggle("pShow");
+              sd.classList.toggle("pShow");
             // sd.classList.toggle("pHide");
             console.log(sd);
             if (sd.classList.contains('pHide')) {
@@ -215,7 +215,7 @@ function toggleHideOthers(divs, id){
 
 function toggleShowHide(ids){
     ids.forEach(id => {
-        // id.classList.toggle("pShow");
+        id.classList.toggle("pShow");
         // id.classList.toggle("pHide");
         console.log(id);
         if (id.classList.contains('pHide')) {

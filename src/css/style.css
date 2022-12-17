@@ -1524,11 +1524,9 @@ h4 {
 		transform: translateY(0);
 
 }
-/* .pShow {
-    display: flex; 
-    -webkit-animation:  slideIn 0.35s ease 0s 1 normal forwards;
-    animation: slideIn 0.35s ease 0s 1 normal forwards;
-  } */
+.pShow {
+    
+  }
   .pShow.did-slideIn {
     display: flex; 
     -webkit-animation:  slideOut 0.35s ease 0s 1 normal forwards;
