@@ -24,126 +24,215 @@ let charIndex = 0;
 
 function type() {
     if (charIndex < textArray[textArrayIndex].length) {
-      if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-      typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-      charIndex++;
-      setTimeout(type, typingDelay);
-    } 
-    else {
-      cursorSpan.classList.remove("typing");
+        if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+    } else {
+        cursorSpan.classList.remove("typing");
         setTimeout(erase, newTextDelay);
     }
-  }
-  
-  function erase() {
-      if (charIndex > 0) {
-      if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-      typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-      charIndex--;
-      setTimeout(erase, erasingDelay);
-    } 
-    else {
-      cursorSpan.classList.remove("typing");
-      textArrayIndex++;
-      if(textArrayIndex>=textArray.length) textArrayIndex=0;
-      setTimeout(type, typingDelay + 1100);
+}
+
+function erase() {
+    if (charIndex > 0) {
+        if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+    } else {
+        cursorSpan.classList.remove("typing");
+        textArrayIndex++;
+        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+        setTimeout(type, typingDelay + 1100);
     }
-  }
-  
-  document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
-    if(textArray.length) setTimeout(type, newTextDelay + 250);
-  });
+}
+
+document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+    if (textArray.length) setTimeout(type, newTextDelay + 250);
+});
 
 function navbarToggle() {
     if (navBar.className === "navbar") {
-      navBar.className += " responsive";
-      header.className += " responsive";
-      toggleBtn[0].className += " hid ";
-      toggleBtn[1].className = "fa fa-xmark";
+        navBar.className += " responsive";
+        header.className += " responsive";
+        toggleBtn[0].className += " hid ";
+        toggleBtn[1].className = "fa fa-xmark";
     } else {
-      navBar.className = "navbar";
-      header.className = "header";
-      toggleBtn[0].className = "fa fa-bars";
-      toggleBtn[1].className += " hid";
+        navBar.className = "navbar";
+        header.className = "header";
+        toggleBtn[0].className = "fa fa-bars";
+        toggleBtn[1].className += " hid";
     }
-    console.log(toggleBtn[1]);
-  }
+}
 
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-    navbarToggle(); 
-    sidebar.classList.add("hide");
-    for (let i = 0; i < pages.length; i++) {
-        if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-            pages[i].parentElement.classList.add("full-border");
-            pages[i].classList.add("active");
-            navigationLinks[i].classList.add("active");
-            if(pages[i].classList.contains("Home")) { 
-                sidebar.classList.remove("hide");
-                pages[i].parentElement.classList.remove("full-border");
+    navigationLinks[i].addEventListener("click", function () {
+        navbarToggle();
+        sidebar.classList.add("hide");
+        for (let i = 0; i < pages.length; i++) {
+            if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+                pages[i].parentElement.classList.add("full-border");
+                pages[i].classList.add("active");
+                navigationLinks[i].classList.add("active");
+                if (pages[i].classList.contains("Home")) {
+                    sidebar.classList.remove("hide");
+                    pages[i].parentElement.classList.remove("full-border");
+                }
+                window.scrollTo(0, 0);
+            } else {
+                pages[i].classList.remove("active");
+                navigationLinks[i].classList.remove("active");
             }
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
+        }
 
-  });
+    });
 }
 
 // adding collapsable content
 for (var i = 0; i < eduHead.length; i++) {
-    eduHead[i].addEventListener("click", function() {
-    this.classList.toggle("plusActive");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
+    eduHead[i].addEventListener("click", function () {
+        this.classList.toggle("plusActive");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
 }
 
 function isElementInViewport(el) {
     let rect = el.getBoundingClientRect();
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
         (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-  }
-  
-  (function () {
-  function slideIn() {
-    for (let i = 0; i < timelineCard.length; i++) {
-      if (isElementInViewport(timelineCard[i])) {
-        timelineCard[i].classList.add("slide-in");
-      } else {
-        timelineCard[i].classList.remove("slide-in");
-      }
-    }
 }
+
+(function () {
+    function slideIn() {
+        for (let i = 0; i < timelineCard.length; i++) {
+            if (isElementInViewport(timelineCard[i])) {
+                timelineCard[i].classList.add("slide-in");
+            } else {
+                timelineCard[i].classList.remove("slide-in");
+            }
+        }
+    }
     window.addEventListener("load", slideIn);
     window.addEventListener("scroll", slideIn);
     window.addEventListener("resize", slideIn);
-}) ();
+})();
 
 
-    
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // e.submit();
-        const formData = new FormData(form);
-        // const values = [...formData.entries()];
-        console.log(Object.fromEntries(formData));
-        // console.log(values);
+
+btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // e.submit();
+    const formData = Array.from(
+        document.querySelectorAll(".contact-form input")
+    ).reduce((acc, input) => ({
+        ...acc,
+        [input.id]: input.value
+    }), {});
+
+    console.log({
+        formData
     });
+});
 // const output = document.getElementById('output');
 
 // for (const [key, value] of formData) {
 //   output.textContent += `${key}: ${value}\n`;
+
+const projCard = document.querySelectorAll('.projMain');
+var mlCards = document.querySelectorAll('#ml');
+var webCards = document.querySelectorAll('#wb');
+var sbCards = document.querySelectorAll('#sb');
+var cppCards = document.querySelectorAll('#cpp');
+var gmCards = document.querySelectorAll('#gm');
+
+projCard.forEach(pro => {
+  pro.addEventListener('click', e=> {
+  var showDiv = document.querySelectorAll('.pShow');
+  //   console.log(b.id);
+  switch(pro.id){
+      case 'ml-ai':
+          toggleShowHide(mlCards);
+          toggleHideOthers(showDiv, 'ml');
+          break;
+          case 'web':
+          toggleShowHide(webCards);
+          toggleHideOthers(showDiv, 'wb');
+          break;
+          case 'bots':
+          toggleShowHide(sbCards);
+          toggleHideOthers(showDiv, 'sb');
+          break;
+          case 'cp':
+          toggleShowHide(cppCards);
+          toggleHideOthers(showDiv, 'cpp');
+          break;
+          case 'games':
+              toggleShowHide(gmCards);
+              toggleHideOthers(showDiv, 'gm');
+              break;
+            }
+});
+});
+
+function toggleHideOthers(divs, id){
+  divs.forEach(sd => {
+      if(sd.id != id){
+              sd.classList.toggle("pShow");
+            // sd.classList.toggle("pHide");
+            console.log(sd);
+            if (sd.classList.contains('pHide')) {
+                sd.classList.remove('pHide');
+                setTimeout(function () {
+                  sd.classList.remove('visuallyhidden');
+                  console.log('rem');
+                }, 20);
+              } else {
+                sd.classList.add('visuallyhidden');    
+                sd.addEventListener('transitionend', function(e) {
+                  sd.classList.add('pHide');
+                }, {
+                  capture: false,
+                  once: true,
+                  passive: false
+                });
+              } 
+        }
+    })
+}
+
+function toggleShowHide(ids){
+    ids.forEach(id => {
+        id.classList.toggle("pShow");
+        // id.classList.toggle("pHide");
+        console.log(id);
+        if (id.classList.contains('pHide')) {
+            id.classList.remove('pHide');
+            setTimeout(function () {
+              id.classList.remove('visuallyhidden');
+              console.log('re');
+            }, 20);
+          } else {
+            id.classList.add('visuallyhidden');    
+            id.addEventListener('transitionend', function(e) {
+              id.classList.add('pHide');
+            }, {
+              capture: false,
+              once: true,
+              passive: false
+            });
+          }
+           });
+}
