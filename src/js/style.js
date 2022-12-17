@@ -64,7 +64,6 @@ function navbarToggle() {
         toggleBtn[0].className = "fa fa-bars";
         toggleBtn[1].className += " hid";
     }
-    console.log(toggleBtn[1]);
 }
 
 
@@ -151,3 +150,89 @@ btn.addEventListener('click', (e) => {
 
 // for (const [key, value] of formData) {
 //   output.textContent += `${key}: ${value}\n`;
+
+const projCard = document.querySelectorAll('.projMain');
+var mlCards = document.querySelectorAll('#ml');
+var webCards = document.querySelectorAll('#wb');
+var sbCards = document.querySelectorAll('#sb');
+var cppCards = document.querySelectorAll('#cpp');
+var gmCards = document.querySelectorAll('#gm');
+
+projCard.forEach(pro => {
+  pro.addEventListener('click', e=> {
+  var showDiv = document.querySelectorAll('.pShow');
+  //   console.log(b.id);
+  switch(pro.id){
+      case 'ml-ai':
+          toggleShowHide(mlCards);
+          toggleHideOthers(showDiv, 'ml');
+          break;
+          case 'web':
+          toggleShowHide(webCards);
+          toggleHideOthers(showDiv, 'wb');
+          break;
+          case 'bots':
+          toggleShowHide(sbCards);
+          toggleHideOthers(showDiv, 'sb');
+          break;
+          case 'cp':
+          toggleShowHide(cppCards);
+          toggleHideOthers(showDiv, 'cpp');
+          break;
+          case 'games':
+              toggleShowHide(gmCards);
+              toggleHideOthers(showDiv, 'gm');
+              break;
+            }
+});
+});
+
+function toggleHideOthers(divs, id){
+  divs.forEach(sd => {
+      if(sd.id != id){
+            //   sd.classList.toggle("pShow");
+            // sd.classList.toggle("pHide");
+            console.log(sd);
+            if (sd.classList.contains('pHide')) {
+                sd.classList.remove('pHide');
+                setTimeout(function () {
+                  sd.classList.remove('visuallyhidden');
+                  console.log('rem');
+                }, 20);
+              } else {
+                sd.classList.add('visuallyhidden');    
+                sd.addEventListener('transitionend', function(e) {
+                  sd.classList.add('pHide');
+                }, {
+                  capture: false,
+                  once: true,
+                  passive: false
+                });
+              } 
+        }
+    })
+}
+
+function toggleShowHide(ids){
+    ids.forEach(id => {
+        // id.classList.toggle("pShow");
+        // id.classList.toggle("pHide");
+        console.log(id);
+        if (id.classList.contains('pHide')) {
+            id.classList.remove('pHide');
+            setTimeout(function () {
+              id.classList.remove('visuallyhidden');
+              console.log('re');
+            }, 20);
+          } else {
+            id.classList.add('visuallyhidden');    
+            id.addEventListener('transitionend', function(e) {
+              id.classList.add('pHide');
+            }, {
+              capture: false,
+              once: true,
+              passive: false
+            });
+          }
+           });
+}
